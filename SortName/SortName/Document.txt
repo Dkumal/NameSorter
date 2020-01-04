@@ -1,0 +1,28 @@
+﻿Name Sorter Documentation
+
+program ini digunakan untuk men-sorting nama berdasarkan nama belakang terlebih dahulu,
+jika ada yang sama maka akan menggunakan nama depan.
+
+terdapat 3 folder dalam project ini
+1. BLL (Business Logic Layer) ==> untuk code yang berhubungan dengan business logic.
+	- SortingName.cs
+		Code utama untuk mensorting nama berdasarkan file yang berada di folder Files
+		yang bernama unsorted-names-list.txt dan akan overwrite/create file baru
+		yang bernama sorted-names-list.txt yang berisi nama yang telah di sorting.
+2. Library ==> untuk function-function yang membantu BLL.
+	- Converter.cs
+		terdapat 3 function public dan 1 function private
+			+ getFullNameFromText ==> untuk mengambil data dari file txt dan dirubah menjadi
+										FullNameModel
+			+ GetLastNameOnly ==> untuk merubah data dari string array ke NameModel
+			+ ConvertToStringArray ==> untuk merubah dari list ke string array
+			@ GetFirstNme ==> untuk mengambil data firstname dari list.
+	- InputOutput.cs
+		Code untuk mencetak nama hasil sorting ke screen console.
+3. Model ==> untuk menyimpan object Model.
+	- FullNameModel ==> Object Model untuk menyimpan Full Name.
+	- NameModel ==> Object model untuk menyimpan GivenName, LastName,Index.
+	- ResultModel ==> Object model untuk menyimpan hasil dari menjalankan function.
+
+sebelum menjalankan aplikasi, ubah terlebih dahulu appsettings di app.config
+

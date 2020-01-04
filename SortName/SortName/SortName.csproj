@@ -48,6 +48,7 @@
     <Compile Include="Library\InputOutput.cs" />
     <Compile Include="Model\FullNameModel.cs" />
     <Compile Include="Model\NameModel.cs" />
+    <Compile Include="Model\ResultModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,10 +56,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Files\sorted-names-list.txt.txt" />
     <Content Include="bin\Debug\Files\unsorted-names-list.txt" />
-    <Content Include="Files\sorted-names-list.txt.txt" />
-    <Content Include="Files\unsorted-names-list.txt" />
+    <Content Include="Document.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

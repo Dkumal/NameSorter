@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 
 namespace SortName.Library
 {
@@ -11,14 +8,8 @@ namespace SortName.Library
     {
         public void writeToText(string[] data)
         {
-            //TextWriter textWriter = new StreamWriter("Files/sorted-names-list.txt");
-            ////foreach(string s in data)
-            ////{
-            ////    textWriter.WriteLine(s);
-            ////}
-            //File.WriteAllLines("Files/sorted-names-list.txt", data);
-
-            using (StreamWriter file = new StreamWriter("Files/sorted-names-list.txt"))
+            string Dir = ConfigurationSettings.AppSettings.Get("Folder");
+            using (StreamWriter file = new StreamWriter(Dir + "/sorted-names-list.txt"))
             {
                 foreach(string s in data)
                 {

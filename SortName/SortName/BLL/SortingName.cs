@@ -10,18 +10,37 @@ namespace SortName.BLL
 {
     public class SortingName
     {
-        public void SortList(string FileLocation)
+        public ResultModel SortList(string FileLocation)
         {
-            Converter c = new Converter();
-            InputOutput io = new InputOutput();
 
-            List<FullNameModel> NameList = c.getFullNameFromText(FileLocation);
-            List<NameModel> nameModels = c.GetLastNameOnly(NameList);
+            try
+            {
+                Converter c = new Converter();
+                InputOutput io = new InputOutput();
 
-            nameModels = nameModels.OrderBy(x => x.LastName).ThenBy(z => z.GivenName).ToList();
-            string[] sortedList = c.ConvertToStringArray(nameModels);
-            io.writeToText(sortedList);
-            io.PrintToScreenConsole(sortedList);
+                List<FullNameModel> NameList = c.getFullNameFromText(FileLocation);
+                List<NameModel> nameModels = c.GetLastNameOnly(NameList);
+
+                nameModels = nameModels.OrderBy(x => x.LastName).ThenBy(z => z.GivenName).ToList();
+                string[] sortedList = c.ConvertToStringArray(nameModels);
+                
+
+                return new ResultModel
+                {
+                    IsFailed = false,
+                    ErrorMessage = "Sorting Succeed",
+                    Content = sortedList
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResultModel {
+                    IsFailed = true,
+                    ErrorMessage = ex.Message,
+                    Content = null
+                };
+            }
+            
         }
     }
 }
