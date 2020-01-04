@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SortName.Library;
+using System;
 
 namespace SortName
 {
@@ -24,7 +25,8 @@ namespace SortName
             io.writeToText(result.Content);
             io.PrintToScreenConsole(result.Content);
 
-            //string ex = Console.ReadLine();
+            Console.WriteLine("Press anything to exit");
+            Console.ReadLine();
 
         }
     }
